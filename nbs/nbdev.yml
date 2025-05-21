@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "ElitePython"
+  site-url: "https://BrunodsLilly.github.io/ElitePython"
+  description: "DSA in Python"
+  repo-branch: main
+  repo-url: "https://github.com/BrunodsLilly/ElitePython"
