@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ElitePython",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation.",
+    "crumbs": [
+      "ElitePython"
+    ]
+  },
+  {
+    "objectID": "index.html#developer-guide",
+    "href": "index.html#developer-guide",
+    "title": "ElitePython",
+    "section": "Developer Guide",
+    "text": "Developer Guide\nIf you are new to using nbdev here are some useful pointers to get you started.\n\nInstall ElitePython in Development mode\n# make sure ElitePython package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to ElitePython\n$ nbdev_prepare",
+    "crumbs": [
+      "ElitePython"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "ElitePython",
+    "section": "Usage",
+    "text": "Usage\n\nInstallation\nInstall latest from the GitHub repository:\n$ pip install git+https://github.com/BrunodsLilly/ElitePython.git\nor from conda\n$ conda install -c BrunodsLilly ElitePython\nor from pypi\n$ pip install ElitePython\n\n\nDocumentation\nDocumentation can be found hosted on this GitHub repository’s pages. Additionally you can find package manager specific guidelines on conda and pypi respectively.",
+    "crumbs": [
+      "ElitePython"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "ElitePython",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+3\n\n4",
+    "crumbs": [
+      "ElitePython"
+    ]
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "source\n\nfoo\n\n foo ()\n\nA sample function\n\nsource\n\n\nsay_hello\n\n say_hello (to:str)\n\n*Args:\nto (str): Name to say hi to.*",
+    "crumbs": [
+      "core"
+    ]
+  },
+  {
+    "objectID": "data_structures/binary_trees.html",
+    "href": "data_structures/binary_trees.html",
+    "title": "Binary Trees",
+    "section": "",
+    "text": "from collections import deque\nimport matplotlib.pyplot as plt\nimport networkx as nx",
+    "crumbs": [
+      "data_structures",
+      "Binary Trees"
+    ]
+  },
+  {
+    "objectID": "data_structures/binary_trees.html#utility-functions",
+    "href": "data_structures/binary_trees.html#utility-functions",
+    "title": "Binary Trees",
+    "section": "Utility functions",
+    "text": "Utility functions\n\ndef visualize_tree(root):\n    if not root:\n        print(\"Empty tree\")\n        return\n    \n    G = nx.DiGraph()\n    pos = {}\n    labels = {}\n    node_id = 0\n    \n    def add_nodes(node, x=0.0, y=0.0, layer=1):\n        nonlocal node_id\n        if node:\n            current_id = node_id\n            node_id += 1\n            G.add_node(current_id)\n            pos[current_id] = (x, y)\n            labels[current_id] = str(node.value)\n            \n            if node.left:\n                left_id = node_id\n                G.add_edge(current_id, left_id)\n                add_nodes(node.left, x - 1/layer, y - 1, layer + 1)\n            if node.right:\n                right_id = node_id\n                G.add_edge(current_id, right_id)\n                add_nodes(node.right, x + 1/layer, y - 1, layer + 1)\n            \n            return current_id\n    \n    add_nodes(root)\n    \n    plt.figure(figsize=(3, 2))\n    nx.draw(G, pos, labels=labels, with_labels=True, node_color='lightblue', \n            node_size=1000, font_size=16, font_weight='bold', arrows=True)\n    plt.title(\"Binary Tree Visualization\")\n    plt.show()",
+    "crumbs": [
+      "data_structures",
+      "Binary Trees"
+    ]
+  },
+  {
+    "objectID": "data_structures/binary_trees.html#binary-trees",
+    "href": "data_structures/binary_trees.html#binary-trees",
+    "title": "Binary Trees",
+    "section": "Binary Trees",
+    "text": "Binary Trees\n\nClasses and methods for operating with Binary Search Trees.\n\nA Binary Search Tree is a hierarchical data structure compose of nodes, where each node has at most two child nodes. Binary Trees are used for efficient data storage and support insertions, deletions, and traversals. These operations have a worst-case complexity of O(n). Balanced trees have a time complexity of O(logn).\n\n\n\nThe Anatomy of a Binary Tree\n\n\nEach node in a binary tree has three parts: - Data - Pointer to the left child - Pointer to the right child\n\n\n\nFigure of a node\n\n\nCreating a Node\n\nclass Node:\n    \"\"\"A node in a binary tree.\"\"\"\n    def __init__(self, key, left: \"Node|None\"=None, right: \"Node|None\"=None):\n        self.value = key\n        self.left: Node|None = left\n        self.right: Node|None = right\n    \n    def __str__(self) -&gt; str:\n        \"\"\"A string representation of the node including its value, left, and right children.\"\"\"\n        left_value = f\"Node({self.left.value})\" if self.left else None\n        right_value = f\"Node({self.right.value})\" if self.right else None\n        return f\"Node({self.value}, left={left_value}, right={right_value})\"\n\n    def __repr__(self) -&gt; str:\n        \"\"\"A representation of the node including its value, left, and right children.\"\"\"\n        return self.__str__()\n\nCreating a binary tree requires creating a set of nodes.\n\nnode1 = Node(1)\nnode1\n\nNode(1, left=None, right=None)\n\n\n\nroot_node = (\n    Node(1,\n        Node(2,\n                Node(4,\n                    Node(8),\n                    Node(9)\n                ),\n                Node(5,\n                    Node(10),\n                    Node(11)\n                )\n        ),\n        Node(3,\n                Node(6,\n                    Node(12),\n                    Node(13)\n                ),\n                Node(7,\n                    Node(14),\n                    Node(15)\n                )\n        )\n    )\n)\nroot_node\n\nNode(1, left=Node(2), right=Node(3))\n\n\nTerminology:\n\nNode: an object with a value, a left node, and a child node.\nChild: a left or right node.\nParent: a node that has a child node.\nRoot: the topmost node in a set of nodes; it does not have a parent.\nLeaf: a node with a parent node and no child nodes.\nInternal: a node with at least one child node.\nDepth: the number of edges from a node to its root.\nHeight: the Depth of the deepest leaf node.\n\n\nclass Node:\n    \"\"\"A node in a binary tree.\"\"\"\n    def __init__(self, key, left: \"Node|None\"=None, right: \"Node|None\"=None, parent: \"Node|None\" = None):\n        self.value = key\n        self.parent: Node|None = parent\n        self.left: Node|None = left\n        self.right: Node|None = right\n    \n    def __str__(self) -&gt; str:\n        \"\"\"A string representation of the node including its value, left, and right children.\"\"\"\n        left_value = f\"Node({self.left.value})\" if self.left else None\n        right_value = f\"Node({self.right.value})\" if self.right else None\n        parent_value = f\"Node({self.parent.value})\" if self.parent else None\n        return f\"Node({self.value}, left={left_value}, right={right_value}, parent={parent_value})\"\n\n    def __repr__(self) -&gt; str:\n        \"\"\"A representation of the node including its value, left, and right children.\"\"\"\n        return self.__str__()\n\n    @property\n    def height(self) -&gt; int:\n        return 1 + max(\n            (self.left.height if self.left else 0), (self.right.height if self.right else 0)\n        )\n    \n    @property\n    def depth(self) -&gt; int:\n        return 1 + (self.parent.depth if self.parent else 0)\n\n\ndef set_parents(node: Node, parent: Node|None=None) -&gt; Node:\n    \"\"\"Set parent nodes given a root node.\"\"\"\n    if parent:\n        node.parent = parent\n    if node.left:\n        set_parents(node.left, node)\n    if node.right:\n        set_parents(node.right, node)\n    return node\n\n\nroot_node = set_parents(\n    Node(1,\n        Node(2,\n                Node(4,\n                    Node(8),\n                    Node(9)\n                ),\n                Node(5,\n                    Node(10),\n                    Node(11)\n                )\n        ),\n        Node(3,\n                Node(6,\n                    Node(12),\n                    Node(13)\n                ),\n                Node(7,\n                    Node(14),\n                    Node(15)\n                )\n        )\n    )\n)\nroot_node.parent, root_node.height, root_node.depth\n\n(None, 4, 1)\n\n\n\nif root_node.left:\n    print(root_node.left, \"depth:\", root_node.left.depth)\n\nNode(2, left=Node(4), right=Node(5), parent=Node(1)) depth: 2\n\n\nProperties of a binary tree:\n\nMax nodes: \\(2^H - 1\\)\nMax nodes in a level: \\(2^L\\)\nMin height is \\(log_2(n+1)\\)",
+    "crumbs": [
+      "data_structures",
+      "Binary Trees"
+    ]
+  },
+  {
+    "objectID": "data_structures/binary_trees.html#operations-on-a-binary-tree",
+    "href": "data_structures/binary_trees.html#operations-on-a-binary-tree",
+    "title": "Binary Trees",
+    "section": "Operations on a binary tree",
+    "text": "Operations on a binary tree\n\nTraversal:\n\nVisiting all nodes in a binary tree.\nDepth-First Search:\n\npreorder\ninorder\npostorder\n\nBreadth-First Search:\n\nlevel\n\n\nInsertion\nDeletion\n\n\nTraversal\n\nfrom collections import deque\n\ndef _create_dummy_node(num=5) -&gt; Node:\n    if num &lt;= 0:\n        return None\n    nodes = [Node(i) for i in range(num)]\n    for i in range(num):\n        left_index = 2 * i + 1\n        right_index = 2 * i + 2\n        if left_index &lt; num:\n            nodes[i].left = nodes[left_index]\n            nodes[left_index].parent = nodes[i]\n        if right_index &lt; num:\n            nodes[i].right = nodes[right_index]\n            nodes[right_index].parent = nodes[i]\n    return nodes[0]  # root node\n\nvisualize_tree(_create_dummy_node(0))\nvisualize_tree(_create_dummy_node(1))\nvisualize_tree(_create_dummy_node(5))\nvisualize_tree(_create_dummy_node(9))\n\nEmpty tree\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDFS\n\nImplemented using recursion\n\n\nroot = _create_dummy_node()\n\n\nfrom typing import Generator\n\n\ndef dfs_inorder(node: Node) -&gt; Generator[Node, None, None]:\n    \"\"\"Depth-first search.\n    \n    Visits left subtree, then node, then right subtree\n    \"\"\"\n    if node.left:\n        yield from dfs_inorder(node.left)\n    yield node\n    if node.right:\n        yield from dfs_inorder(node.right)\n\nlist(dfs_inorder(root))\n\n[Node(3, left=None, right=None, parent=Node(1)),\n Node(1, left=Node(3), right=Node(4), parent=Node(0)),\n Node(4, left=None, right=None, parent=Node(1)),\n Node(0, left=Node(1), right=Node(2), parent=None),\n Node(2, left=None, right=None, parent=Node(0))]\n\n\n\ndef dfs_preorder(node: Node) -&gt; Generator[Node, None, None]:\n    \"\"\"Depth-first search.\n\n    Visits the node, then left subtree, then right subtree.\n    \"\"\"\n    yield node\n    if node.left:\n        yield from dfs_preorder(node.left)\n    if node.right:\n        yield from dfs_preorder(node.right)\nlist(dfs_preorder(root))\n\n[Node(0, left=Node(1), right=Node(2), parent=None),\n Node(1, left=Node(3), right=Node(4), parent=Node(0)),\n Node(3, left=None, right=None, parent=Node(1)),\n Node(4, left=None, right=None, parent=Node(1)),\n Node(2, left=None, right=None, parent=Node(0))]\n\n\n\ndef dfs_postorder(node: Node) -&gt; Generator[Node, None, None]:\n    \"\"\"Depth-first search.\n\n    Visits the left subtree, then right subtree, then the node\n    \"\"\"\n    if node.left:\n        yield from dfs_postorder(node.left)\n    if node.right:\n        yield from dfs_postorder(node.right)\n    yield node\nlist(dfs_postorder(root))\n\n[Node(3, left=None, right=None, parent=Node(1)),\n Node(4, left=None, right=None, parent=Node(1)),\n Node(1, left=Node(3), right=Node(4), parent=Node(0)),\n Node(2, left=None, right=None, parent=Node(0)),\n Node(0, left=Node(1), right=Node(2), parent=None)]\n\n\n\n\nBFS\n\nImplemented using a queue\n\n\nfrom collections import deque\ndef bfs(node: Node) -&gt; Generator[Node, None, None]:\n    \"\"\"Breadth-first search.\"\"\"\n    queue = deque([node])\n    while queue:\n        node = queue.popleft()\n        yield node\n        if node.left:\n            queue.append(node.left)\n        if node.right:\n            queue.append(node.right)\nlist(bfs(root))\n\n[Node(0, left=Node(1), right=Node(2), parent=None),\n Node(1, left=Node(3), right=Node(4), parent=Node(0)),\n Node(2, left=None, right=None, parent=Node(0)),\n Node(3, left=None, right=None, parent=Node(1)),\n Node(4, left=None, right=None, parent=Node(1))]\n\n\n\n\n\nInsertion\nInsertion uses BFS to find the first child node without a child.\n\ndef insert_node(root: Node, key):\n    \"\"\"\"\"\"\n    queue = deque([root])\n    while queue:\n        node = queue.popleft()\n        if node.left:\n            queue.append(node.left)\n        else:\n            node.left = Node(key=key, left=None, right=None, parent=node)\n            break\n\n        if node.right:\n            queue.append(node.right)\n        else:\n            node.right = Node(key=key, left=None, right=None, parent=node)\n            break\n    \nroot = _create_dummy_node()\nvisualize_tree(root)\ninsert_node(root, \"new1\")\ninsert_node(root, \"new2\")\ninsert_node(root, \"new3\")\ninsert_node(root, \"new4\")\nvisualize_tree(root)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSearch\n\nfrom typing import Callable\n\n\ndef search_tree(root: Node, key, traversal_func: Callable[[Node], Generator[Node, None, None]]) -&gt; Node|None:\n    for node in traversal_func(root):\n        if node.value == key:\n            return node\n    else:\n        return None\n\nroot = _create_dummy_node()\n(\n    search_tree(root, 1, dfs_inorder),\n    search_tree(root, 2, dfs_preorder),\n    search_tree(root, 3, dfs_postorder),\n    search_tree(root, 4, bfs),\n    search_tree(root, 5, dfs_inorder),\n)\n\n(Node(1, left=Node(3), right=Node(4), parent=Node(0)),\n Node(2, left=None, right=None, parent=Node(0)),\n Node(3, left=None, right=None, parent=Node(1)),\n Node(4, left=None, right=None, parent=Node(1)),\n None)\n\n\n\n\nDeletion\nDeleting a node requires choosing a traversal method, finding the node to delete, then promoting another node to the level of the parent node to preserve the tree’s structure. The simplest solution is to replace the deleted node with the right-most node in the tree. If the node to delete is the right-most node, just delete it.\nThe first step is to identify the right-most node, then compare it with the node to delete, then delete the node and swap it with the right-most node.\n\nNote: any node can be swapped to preserve the tree structure, but if you want to maintain order of a BST, you need to choose the node that will preserve BST constraints.\n\n\ndef delete_node(root: Node, key=None) -&gt; Node|None:\n    \"\"\"Uses BFS to delete the node with a key and swap it with the right-most node.\"\"\"\n\n    # if root has no children\n    if root.left or root.right:\n        pass\n    else:\n        del root\n        return None\n\n    # find the deepest root node and its parent\n    queue: deque[tuple[Node, Node|None]] = deque([(root, None)])  # root has no parent\n    last_parent = None\n    last_node = None\n    while queue:\n        last_node, last_parent = queue.popleft()\n        if last_node.left:\n            queue.append((last_node.left, last_node))\n        if last_node.right:\n            queue.append((last_node.right, last_node))\n\n    # delete the leaf node\n    if last_parent:\n        if last_parent.right:\n            last_parent.right = None\n        elif last_parent.left:\n            last_parent.left = None\n    else:\n        raise NotImplementedError(\"Parent of right-most node not found.\")\n    \n    # find the node with value == key\n    if last_node and root.value == key:\n        last_node.left = root.left\n        last_node.right = root.right\n        del root\n        return last_node\n    elif last_node:\n        pass\n    else:\n        raise NotImplementedError\n\n    target_queue: deque[Node] = deque([root])\n    while target_queue:\n        node = target_queue.popleft()\n        if node.left:\n            if node.left is last_node:\n                node.left = None\n                return root\n            elif node.left.value == key:\n                node.left = last_node\n                last_node.parent = node\n                return root\n            target_queue.append(node.left)\n        if node.right:\n            if node.right is last_node:\n                node.right = None\n                return root\n            elif node.right.value == key:\n                node.right = last_node\n                last_node.parent = node\n                return root\n            target_queue.append(node.right)\n    return root\n\nvisualize_tree(_create_dummy_node())\nvisualize_tree(\n    delete_node(\n        delete_node(\n            _create_dummy_node(),\n            2\n        ),  # type: ignore\n        5\n    )\n)\nvisualize_tree(\n    delete_node(Node(1), 1)\n)\nvisualize_tree(\n    delete_node(Node(1, left=Node(2)), 1)\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEmpty tree",
+    "crumbs": [
+      "data_structures",
+      "Binary Trees"
+    ]
+  },
+  {
+    "objectID": "data_structures/binary_trees.html#types-of-binary-trees",
+    "href": "data_structures/binary_trees.html#types-of-binary-trees",
+    "title": "Binary Trees",
+    "section": "Types of binary trees",
+    "text": "Types of binary trees\n\nBy children\n\nFull\nDegenerate\nSkewed\n\nBy levels\n\nComplete\nPerfect\nBalanced\n\nBy values\n\nBinary search tree\nAVL\nRed Black\nB\nB+\nSegment",
+    "crumbs": [
+      "data_structures",
+      "Binary Trees"
+    ]
+  }
+]
