@@ -5,4 +5,9 @@ d = { 'settings': { 'branch': 'main',
                 'doc_host': 'https://BrunodsLilly.github.io',
                 'git_url': 'https://github.com/BrunodsLilly/ElitePython',
                 'lib_path': 'ElitePython'},
-  'syms': {'ElitePython.core': {'ElitePython.core.foo': ('core.html#foo', 'ElitePython/core.py')}}}
+  'syms': { 'ElitePython.core': { 'ElitePython.core.foo': ('core.html#foo', 'ElitePython/core.py'),
+                                  'ElitePython.core.say_hello': ('core.html#say_hello', 'ElitePython/core.py')},
+            'ElitePython.data_structures': { 'ElitePython.data_structures.foo': ( 'data_structures.html#foo',
+                                                                                  'ElitePython/data_structures.py'),
+                                             'ElitePython.data_structures.say_hello': ( 'data_structures.html#say_hello',
+                                                                                        'ElitePython/data_structures.py')}}}
