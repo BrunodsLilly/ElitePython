@@ -1,9 +1,0 @@
----
-order: 1
-title: Data Structures
-listing:
-  fields: [title, description]
-  type: table
-  sort-ui: false
-  filter-ui: false
----
