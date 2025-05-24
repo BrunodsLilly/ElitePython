@@ -5,7 +5,53 @@ d = { 'settings': { 'branch': 'main',
                 'doc_host': 'https://BrunodsLilly.github.io',
                 'git_url': 'https://github.com/BrunodsLilly/ElitePython',
                 'lib_path': 'ElitePython'},
-  'syms': { 'ElitePython.core': { 'ElitePython.core.foo': ('core.html#foo', 'ElitePython/core.py'),
+  'syms': { 'ElitePython.binary_trees': { 'ElitePython.binary_trees.Node': ( 'Data Structures/Binary Trees/binary_trees.html#node',
+                                                                             'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.Node.__init__': ( 'Data Structures/Binary '
+                                                                                      'Trees/binary_trees.html#node.__init__',
+                                                                                      'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.Node.__repr__': ( 'Data Structures/Binary '
+                                                                                      'Trees/binary_trees.html#node.__repr__',
+                                                                                      'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.Node.__str__': ( 'Data Structures/Binary '
+                                                                                     'Trees/binary_trees.html#node.__str__',
+                                                                                     'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.Node.depth': ( 'Data Structures/Binary '
+                                                                                   'Trees/binary_trees.html#node.depth',
+                                                                                   'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.Node.height': ( 'Data Structures/Binary '
+                                                                                    'Trees/binary_trees.html#node.height',
+                                                                                    'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.bfs': ( 'Data Structures/Binary Trees/binary_trees.html#bfs',
+                                                                            'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.create_n_nodes': ( 'Data Structures/Binary '
+                                                                                       'Trees/binary_trees.html#create_n_nodes',
+                                                                                       'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.delete_node': ( 'Data Structures/Binary '
+                                                                                    'Trees/binary_trees.html#delete_node',
+                                                                                    'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.dfs_inorder': ( 'Data Structures/Binary '
+                                                                                    'Trees/binary_trees.html#dfs_inorder',
+                                                                                    'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.dfs_postorder': ( 'Data Structures/Binary '
+                                                                                      'Trees/binary_trees.html#dfs_postorder',
+                                                                                      'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.dfs_preorder': ( 'Data Structures/Binary '
+                                                                                     'Trees/binary_trees.html#dfs_preorder',
+                                                                                     'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.insert_node': ( 'Data Structures/Binary '
+                                                                                    'Trees/binary_trees.html#insert_node',
+                                                                                    'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.search_tree': ( 'Data Structures/Binary '
+                                                                                    'Trees/binary_trees.html#search_tree',
+                                                                                    'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.set_parents': ( 'Data Structures/Binary '
+                                                                                    'Trees/binary_trees.html#set_parents',
+                                                                                    'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.visualize_tree': ( 'Data Structures/Binary '
+                                                                                       'Trees/binary_trees.html#visualize_tree',
+                                                                                       'ElitePython/binary_trees.py')},
+            'ElitePython.core': { 'ElitePython.core.foo': ('core.html#foo', 'ElitePython/core.py'),
                                   'ElitePython.core.say_hello': ('core.html#say_hello', 'ElitePython/core.py')},
             'ElitePython.data_structures': { 'ElitePython.data_structures.foo': ( 'data_structures.html#foo',
                                                                                   'ElitePython/data_structures.py'),

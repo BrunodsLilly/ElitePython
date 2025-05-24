@@ -3,4 +3,9 @@ website:
     contents:
       - index.ipynb
       - 00_core.ipynb
-      - 01_data_structures.ipynb
+      - section: Data Structures
+        contents:
+          - section: Binary Trees
+            contents:
+              - Data Structures/Binary Trees/binary_search_trees.ipynb
+              - Data Structures/Binary Trees/binary_trees.ipynb
