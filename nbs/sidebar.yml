@@ -7,5 +7,4 @@ website:
         contents:
           - section: Binary Trees
             contents:
-              - Data Structures/Binary Trees/binary_search_trees.ipynb
               - Data Structures/Binary Trees/binary_trees.ipynb

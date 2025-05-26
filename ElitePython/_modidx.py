@@ -24,6 +24,12 @@ d = { 'settings': { 'branch': 'main',
                                                                                     'ElitePython/binary_trees.py'),
                                           'ElitePython.binary_trees.bfs': ( 'Data Structures/Binary Trees/binary_trees.html#bfs',
                                                                             'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.bst_insert': ( 'Data Structures/Binary '
+                                                                                   'Trees/binary_trees.html#bst_insert',
+                                                                                   'ElitePython/binary_trees.py'),
+                                          'ElitePython.binary_trees.bst_search': ( 'Data Structures/Binary '
+                                                                                   'Trees/binary_trees.html#bst_search',
+                                                                                   'ElitePython/binary_trees.py'),
                                           'ElitePython.binary_trees.create_n_nodes': ( 'Data Structures/Binary '
                                                                                        'Trees/binary_trees.html#create_n_nodes',
                                                                                        'ElitePython/binary_trees.py'),
