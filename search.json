@@ -1,0 +1,196 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ElitePython",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation.",
+    "crumbs": [
+      "ElitePython"
+    ]
+  },
+  {
+    "objectID": "index.html#developer-guide",
+    "href": "index.html#developer-guide",
+    "title": "ElitePython",
+    "section": "Developer Guide",
+    "text": "Developer Guide\nIf you are new to using nbdev here are some useful pointers to get you started.\n\nInstall ElitePython in Development mode\n# make sure ElitePython package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to ElitePython\n$ nbdev_prepare",
+    "crumbs": [
+      "ElitePython"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "ElitePython",
+    "section": "Usage",
+    "text": "Usage\n\nInstallation\nInstall latest from the GitHub repository:\n$ pip install git+https://github.com/BrunodsLilly/ElitePython.git\nor from conda\n$ conda install -c BrunodsLilly ElitePython\nor from pypi\n$ pip install ElitePython\n\n\nDocumentation\nDocumentation can be found hosted on this GitHub repository’s pages. Additionally you can find package manager specific guidelines on conda and pypi respectively.",
+    "crumbs": [
+      "ElitePython"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "ElitePython",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+3\n\n4",
+    "crumbs": [
+      "ElitePython"
+    ]
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "source\n\nfoo\n\n foo ()\n\nA sample function\n\nsource\n\n\nsay_hello\n\n say_hello (to:str)\n\n*Args:\nto (str): Name to say hi to.*",
+    "crumbs": [
+      "core"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html",
+    "href": "Data Structures/Binary Trees/binary_trees.html",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "",
+    "text": "A binary tree is a hierarchical data structure in which each node has at most two children, referred to as the left child and the right child. Binary trees are widely used for efficient data storage, searching, and sorting.\nUse cases: - Expression parsing - Hierarchical data representation - Efficient searching and sorting (e.g., BSTs)",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html#what-is-a-binary-tree",
+    "href": "Data Structures/Binary Trees/binary_trees.html#what-is-a-binary-tree",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "",
+    "text": "A binary tree is a hierarchical data structure in which each node has at most two children, referred to as the left child and the right child. Binary trees are widely used for efficient data storage, searching, and sorting.\nUse cases: - Expression parsing - Hierarchical data representation - Efficient searching and sorting (e.g., BSTs)",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html#node-structure",
+    "href": "Data Structures/Binary Trees/binary_trees.html#node-structure",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "Node Structure",
+    "text": "Node Structure\nEach node in a binary tree contains: - A value (data) - A reference to the left child (or None) - A reference to the right child (or None)\nBelow is a visual representation of a node:\n\n\n\nFigure of a node\n\n\nCreating a Node\n\nclass Node:\n    \"\"\"A node in a binary tree.\"\"\"\n    def __init__(self, value, left: \"Node|None\"=None, right: \"Node|None\"=None):\n        self.value = value\n        self.left: Node|None = left\n        self.right: Node|None = right\n    \n    def __str__(self) -&gt; str:\n        \"\"\"A string representation of the node including its value, left, and right children.\"\"\"\n        left_value = f\"Node({self.left.value})\" if self.left else None\n        right_value = f\"Node({self.right.value})\" if self.right else None\n        return f\"Node({self.value}, left={left_value}, right={right_value})\"\n\n    def __repr__(self) -&gt; str:\n        return self.__str__()\n\nCreating a binary tree requires creating a set of nodes.\n\nnode1 = Node(1)\nnode1\n\nNode(1, left=None, right=None)\n\n\n\nroot_node = (\n    Node(1,\n        Node(2,\n            Node(4,\n                Node(8),\n                Node(9)\n            ),\n            Node(5,\n                Node(10),\n                Node(11)\n            )\n        ),\n        Node(3,\n            Node(6,\n                Node(12),\n                Node(13)\n            ),\n            Node(7,\n                Node(14),\n                Node(15)\n            )\n        )\n    )\n)\nroot_node\n\nNode(1, left=Node(2), right=Node(3))",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html#visualizing-a-binary-tree",
+    "href": "Data Structures/Binary Trees/binary_trees.html#visualizing-a-binary-tree",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "Visualizing a Binary Tree",
+    "text": "Visualizing a Binary Tree\nThe function below visualizes a binary tree using NetworkX and Matplotlib. It adapts the layout for larger trees, highlights the root, and provides clear node labels. Optionally, you can display parent pointers or other node attributes by customizing the label logic.\n\nsource\n\nvisualize_tree\n\n visualize_tree (root, show_parents=False)\n\nVisualize a binary tree using NetworkX and Matplotlib. Args: root: The root node of the tree. show_parents: If True, include parent values in node labels.",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html#binary-tree-terminology",
+    "href": "Data Structures/Binary Trees/binary_trees.html#binary-tree-terminology",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "Binary Tree Terminology",
+    "text": "Binary Tree Terminology\n\nNode: An object with a value, a left child, and a right child.\nChild: A left or right node.\nParent: A node that has a child node.\nRoot: The topmost node in a tree; it does not have a parent.\nLeaf: A node with no children.\nInternal: A node with at least one child node.\nDepth: The number of edges from a node to the root.\nHeight: The number of edges on the longest path from a node to a leaf.\n\nExample diagram:\n    1 (root)\n   /   \\\n  2     3\n / \\   / \\\n4   5 6   7\n\nNode 1 is the root.\nNodes 4, 5, 6, 7 are leaves.\nNode 2 is an internal node.\nThe depth of node 4 is 2.\nThe height of the tree is 2.\n\n\nsource\n\nNode\n\n Node (value, left:__main__.Node|None=None, right:__main__.Node|None=None,\n       parent:__main__.Node|None=None)\n\nA node in a binary tree with parent pointer.\n\nsource\n\n\nset_parents\n\n set_parents (node:__main__.Node, parent:__main__.Node|None=None)\n\nSet parent nodes given a root node.\n\nroot_node = set_parents(\n    Node(1,\n        Node(2,\n            Node(4,\n                Node(8),\n                Node(9)\n            ),\n            Node(5,\n                Node(10),\n                Node(11)\n            )\n        ),\n        Node(3,\n            Node(6,\n                Node(12),\n                Node(13)\n            ),\n            Node(7,\n                Node(14),\n                Node(15)\n            )\n        )\n    )\n)\nroot_node.parent, root_node.height, root_node.depth\n\n(None, 4, 0)\n\n\n\nif root_node.left:\n    print(root_node.left, \"depth:\", root_node.left.depth)\n\nNode(2, left=Node(4), right=Node(5), parent=Node(1)) depth: 1",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html#properties-of-a-binary-tree",
+    "href": "Data Structures/Binary Trees/binary_trees.html#properties-of-a-binary-tree",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "Properties of a Binary Tree",
+    "text": "Properties of a Binary Tree\n\nMaximum nodes: \\(2^H - 1\\) (where \\(H\\) is the height)\nMaximum nodes at level \\(L\\): \\(2^L\\)\nMinimum height for \\(n\\) nodes: \\(\\lceil \\log_2(n+1) \\rceil\\)\n\nThese properties help analyze the efficiency of tree operations.",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html#operations-on-a-binary-tree",
+    "href": "Data Structures/Binary Trees/binary_trees.html#operations-on-a-binary-tree",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "Operations on a Binary Tree",
+    "text": "Operations on a Binary Tree\n\nTraversal: Visiting all nodes in a binary tree.\n\nDepth-First Search (DFS):\n\nPreorder (node, left, right)\nInorder (left, node, right)\nPostorder (left, right, node)\n\nBreadth-First Search (BFS):\n\nLevel order\n\n\nInsertion: Adding a new node.\nDeletion: Removing a node.\nSearch: Finding a node with a specific value.\n\n\nTraversal\n\nsource\n\n\ncreate_n_nodes\n\n create_n_nodes (num=5)\n\nCreates a perfect binary tree with num nodes.\n\nDFS\n\nImplemented using recursion\n\n\nroot = create_n_nodes(); assert root\n\n\nsource\n\n\n\ndfs_inorder\n\n dfs_inorder (node:__main__.Node)\n\nInorder DFS traversal: left, node, right.\n\nsource\n\n\ndfs_preorder\n\n dfs_preorder (node:__main__.Node)\n\nPreorder DFS traversal: node, left, right.\n\nsource\n\n\ndfs_postorder\n\n dfs_postorder (node:__main__.Node)\n\nPostorder DFS traversal: left, right, node.\n\nBFS\n\nImplemented using a queue\n\n\nsource\n\n\n\nbfs\n\n bfs (node:__main__.Node)\n\nBreadth-first search (level order traversal).\n\n\nInsertion\nInsertion uses BFS to find the first node without a left or right child and inserts the new node there. This keeps the tree as balanced as possible (but does not guarantee a balanced tree).\n\nsource\n\n\ninsert_node\n\n insert_node (root:__main__.Node, value)\n\nLevel-order BFS insert. Inserts a new node with the given value.\n\nroot = create_n_nodes(7)\ninsert_node(root, \"new1\")\ninsert_node(root, \"new2\")\ninsert_node(root, \"new3\")\ninsert_node(root, \"new4\")",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html#search",
+    "href": "Data Structures/Binary Trees/binary_trees.html#search",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "Search",
+    "text": "Search\nYou can search for a value in a tree using any traversal method. The function below is generic and works with any traversal.\n\nsource\n\nsearch_tree\n\n search_tree (root:__main__.Node, value, traversal_func:Callable[[__main__\n              .Node],Generator[__main__.Node,NoneType,NoneType]])\n\nSearch for a node with the given value using the specified traversal function.\n\nroot = create_n_nodes(7)\nprint(search_tree(root, 1, dfs_inorder))\nprint(search_tree(root, 2, dfs_preorder))\nprint(search_tree(root, 3, dfs_postorder))\nprint(search_tree(root, 4, bfs))\nprint(search_tree(root, 5, dfs_inorder))\n\nNode(1, left=Node(3), right=Node(4), parent=Node(0))\nNode(2, left=Node(5), right=Node(6), parent=Node(0))\nNode(3, left=None, right=None, parent=Node(1))\nNode(4, left=None, right=None, parent=Node(1))\nNode(5, left=None, right=None, parent=Node(2))",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html#deletion",
+    "href": "Data Structures/Binary Trees/binary_trees.html#deletion",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "Deletion",
+    "text": "Deletion\nDeleting a node requires: 1. Finding the node to delete. 2. Swapping it with the right-most (deepest) node to preserve structure. 3. Removing the right-most node.\n\nNote: For binary search trees, deletion must preserve the BST property. The method below is for general binary trees.\n\n\nsource\n\ndelete_node\n\n delete_node (root:__main__.Node, value=None)\n\nDeletes the node with the given value by swapping with the right-most node.\n\nvisualize_tree(create_n_nodes(7))\nvisualize_tree(delete_node(delete_node(create_n_nodes(7), 2), 5))\nvisualize_tree(delete_node(Node(1), 1))\nvisualize_tree(delete_node(Node(1, left=Node(2)), 1))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEmpty tree",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html#types-of-binary-trees",
+    "href": "Data Structures/Binary Trees/binary_trees.html#types-of-binary-trees",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "Types of Binary Trees",
+    "text": "Types of Binary Trees\n\nBy children\n\nFull: Every node has 0 or 2 children.\nDegenerate: Each parent has only one child (like a linked list).\nSkewed: All nodes are either to the left or right.\n\nBy levels\n\nComplete: All levels are filled except possibly the last.\nPerfect: All internal nodes have two children and all leaves are at the same level.\nBalanced: Height is minimized.\n\nBy values\n\nBinary search tree (BST)\nAVL\nRed Black\nB, B+\nSegment\n\n\nAdd diagrams or ASCII art for each type for further clarity.",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html#bst-insertion",
+    "href": "Data Structures/Binary Trees/binary_trees.html#bst-insertion",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "BST Insertion",
+    "text": "BST Insertion\nWhen adding a new node, traverse the tree. If the new node’s value is greater than the current node, move right; else move left. Once you hit a leaf node, add the node as a child. Duplicate values are not allowed in this implementation.\n\nsource\n\nbst_insert\n\n bst_insert (root:__main__.Node, new_node:__main__.Node)\n\nInsert a new node into a BST. Raises an exception if value exists.\n\nroot = set_parents(\n    Node(\n        100,\n        left=Node(\n            20,\n            left=Node(10),\n            right=Node(30),\n        ),\n        right=Node(500),\n    )\n)\nbst_insert(root, Node(40))\nbst_insert(root, Node(999))\nbst_insert(root, Node(-999))\nvisualize_tree(root)\n# Uncomment to see exception for duplicate insertion:\n# bst_insert(root, Node(30))\n\n\n\n\n\n\n\n\n\ndef sorted_list_to_bst(vals) -&gt; Node|None:\n    \"\"\"Given a sorted list, returns the root of a balanced BST.\"\"\"\n    if not vals:\n        return None\n    mid = len(vals) // 2\n    node = Node(vals[mid])\n    node.left = sorted_list_to_bst(vals[:mid])\n    if node.left:\n        node.left.parent = node\n    node.right = sorted_list_to_bst(vals[mid+1:])\n    if node.right:\n        node.right.parent = node\n    return node\n\ndef generate_balanced_bst(start, n) -&gt; Node|None:\n    \"\"\"Create a balanced BST of values start...start+n-1.\"\"\"\n    return sorted_list_to_bst(list(range(start, start+n)))\n\nr = generate_balanced_bst(50, 13)\nassert isinstance(r, Node)\nvisualize_tree(r)\n\n\n\n\n\n\n\n\n\n[i.value for i in dfs_inorder(r)]\n\n[50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62]\n\n\n\nsource\n\n\nbst_search\n\n bst_search (root:__main__.Node|None, key)\n\nSearch for a key in a BST. Raises an exception if not found.\n\nbst_search(r, 60)\n\nNode(60, left=Node(58), right=Node(62), parent=Node(56))",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  },
+  {
+    "objectID": "Data Structures/Binary Trees/binary_trees.html#bst-deletion-overview",
+    "href": "Data Structures/Binary Trees/binary_trees.html#bst-deletion-overview",
+    "title": "Binary Trees: Concepts, Implementation, and Visualization",
+    "section": "BST Deletion (Overview)",
+    "text": "BST Deletion (Overview)\nThe goal is to delete a node while maintaining order. There are three cases:\n\nThe node is a leaf node (just remove it).\nThe node has one child (replace it with its child).\nThe node has two children (replace it with its in-order successor or predecessor).\n\n\nImplementing full BST deletion is left as an exercise.",
+    "crumbs": [
+      "Data Structures",
+      "Binary Trees",
+      "Binary Trees: Concepts, Implementation, and Visualization"
+    ]
+  }
+]
